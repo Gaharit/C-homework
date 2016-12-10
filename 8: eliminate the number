@@ -1,0 +1,25 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#define SIZE 5
+
+int main()
+{
+	int a[SIZE];
+	int i, j, badguy;
+	printf("Enter an array of size %d: ", i = SIZE);
+	for (i = 0; i < SIZE; i++)
+		scanf("%d", &a[i]);
+	printf("Enter the number you hate the most: ");
+	scanf("%d",&badguy);
+		for (i = SIZE-1; i >= 0; i--) {
+			if (a[i] == badguy) {
+				for (j = i; j < SIZE - 1; j++)
+					a[j] = a[j + 1];
+				a[SIZE-1] = 0;
+				}
+		}
+		printf("\nHe's gone now:\n");
+		for (i = 0; i < SIZE; i++)
+			printf("%d ", a[i]);
+		printf("\n");
+}
