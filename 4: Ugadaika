@@ -1,0 +1,43 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#define NUMBER 1000
+int main()
+{
+	char answer, garbage;
+	int number = NUMBER/2, result = NUMBER/2, amount = 0;
+	printf("Imagine a number from 1 to %d", number*2);
+	for (; number > 0;) {
+		printf("\nIs your number higher than %d? ", result);
+		answer = getchar();
+		garbage = getchar();
+		if (answer == 'y') {
+			if (number == 1) {
+				result += 1;
+				number--;
+			}
+			else if (((number % 2) > 0) && (number != 1)) {
+				number = (number / 2 + 1);
+				result += number;
+			}
+			else {
+				number = (number / 2);
+				result += number;
+			}
+		}
+		else if (answer == 'n') {
+			if (number == 1) {
+				number--;
+			}
+			else if ((number % 2) > 0) {
+				number = (number / 2 + 1);
+				result -= number;
+			}
+			else {
+				result -= (number / 2);
+				number = (number / 2);
+			}
+		}
+		amount++;
+	}
+	printf("\nYour number is %d.\n Finding it took %d questions\n", result, amount);
+}
