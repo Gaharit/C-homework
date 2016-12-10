@@ -1,0 +1,20 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main()
+{
+	int lower, upper, summ, i, j;
+		printf("Enter a range of numbers: ");
+		scanf("%d %d", &lower, &upper);
+		printf("Perfect numbers are: ");
+		for (i = lower; i <= upper; i++) {
+			summ = 0;
+			for (j = 1; j < i; j++) {
+				if (i%j == 0)
+					summ += j;
+			}
+			if (summ == i)
+				printf("%d ", i);
+		}
+		printf("\n");
+}
