@@ -1,0 +1,33 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#define SIZE 100
+
+int main()
+{
+	char a[SIZE], b[SIZE / 2];
+	char c;
+	int i, j=0, length;
+	printf("Enter a string: ");
+	for (i = 0; i < SIZE;) {
+		scanf("%c", &c);
+		if (c == '\n') {
+			length = i;
+			break;
+		}
+		if (c != ' ') {
+			a[i] = c;
+			i++;
+		}
+	}
+	for (i = length; i >= (length / 2); i--) {
+		b[j] = a[i-1];
+		j++;
+	}
+	for (i = 0; i <= length / 2; i++) {
+		if (a[i] != b[i]) {
+			printf("Your string is not a palindrome :(\n");
+			return 0;
+		}
+	}
+	printf("Your string is a palindrome!\n");
+}
