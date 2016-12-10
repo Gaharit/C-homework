@@ -1,0 +1,51 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main(void) {
+	int i, j, summ1 = 0, summ2 = 0, confirmation = 1, size = 3;
+
+	int a[3][3];
+	for (i = 0; i < size; i++) {
+		printf("\nEnter %d numbers of row %d: ", size, i+1);
+		for (j = 0; j < size; j++) {
+			scanf("%d", &a[i][j]);
+		}
+	}
+	for (i = 0; i < size; i++) {
+		summ1 = summ1 + a[0][i];
+	}
+	for (i = 1; i < size; i++) {
+		summ2 = 0;
+		for (j = 0; j < size; j++) {
+			summ2 = summ2 + a[i][j];
+		}
+		if (summ1 != summ2)
+			confirmation = 0;
+	}
+	for (j = 0; j < size; j++) {
+		summ2 = 0;
+		for (i = 0; i < size; i++) {
+			summ2 = summ2 + a[i][j];
+		}
+		if (summ1 != summ2)
+			confirmation = 0;
+	}
+	summ2 = 0;
+	for (i = 0; i < size; i++) {
+		j = i;
+		summ2 = summ2 + a[i][j];
+	}
+	if (summ1 != summ2)
+		confirmation = 0;
+	summ2 = 0;
+	for (i = size-1; i >= 0; i--) {
+		j = size-1 - i;
+		summ2 = summ2 + a[i][j];
+	}
+	if (summ1 != summ2)
+		confirmation = 0;
+	if (confirmation == 1)
+		printf("\nYour array is magical!\n");
+	else printf("\nYour array is not magical... :(\n");
+}
