@@ -1,0 +1,36 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#define SIZE 5
+
+int main()
+{
+	int a[SIZE][SIZE];
+	int i, j, k, suspect, confirm;
+	FILE * File = fopen("matrix.txt", "r");
+	printf("Matrix is:\n\n");
+	for (i = 0; i < SIZE; i++) {
+		for (j = 0; j < SIZE; j++) {
+			fscanf(File, "%d", &a[i][j]);
+			printf("%d ", a[i][j]);
+		}
+		printf("\n");
+	}
+	printf("\nMinimal numbers are:\n");
+	for (i = 0; i < SIZE; i++) {
+		for (j = 0; j < SIZE; j++) {
+			confirm = 1;
+			suspect = a[i][j];
+			for (k = 0; k < SIZE; k++) {
+				if (a[k][j] < suspect)
+					confirm = 0;
+			}
+			for (k = 0; k < SIZE; k++) {
+				if (a[i][k] < suspect)
+					confirm = 0;
+			}
+			if (confirm == 1)
+				printf("\n%d %d  %d", i, j, suspect);
+		}
+	}
+	printf("\n");
+}
