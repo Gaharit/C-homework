@@ -1,0 +1,33 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#define CREW 120
+
+int main()
+{
+	int a[CREW];
+	int i, n, c, killcount = 0;
+
+	for (i = 0; i < CREW; i++)
+		a[i] = 1;
+	printf("Let's kill every n-th warrior. Enter n: ");
+	scanf("%d", &n);
+	c = n;
+	for (i = 0; killcount <= CREW - n; i++) {
+		if (c == 0) {
+			if (a[i] != 0) {
+				a[i] = 0;
+				c = n-1;
+				killcount++;
+			}
+		}
+		else if ((c != 0) && (a[i]!= 0))
+			c--;
+		if (i == CREW - 1)
+			i = -1;
+	}
+	printf("\n");
+	for (i = 0; i < CREW; i++) {
+		if (a[i] == 1)
+			printf("Warrior %d survived!\n", i+1);
+	}
+}
