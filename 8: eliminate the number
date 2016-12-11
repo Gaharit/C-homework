@@ -18,7 +18,7 @@ int main()
 				a[SIZE-1] = 0;
 				}
 		}
-		printf("\nHe's gone now:\n");
+		printf("\nIt's gone now:\n");
 		for (i = 0; i < SIZE; i++)
 			printf("%d ", a[i]);
 		printf("\n");
